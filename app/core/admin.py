@@ -11,7 +11,7 @@ class UserAdmin(BaseUserAdmin):
         ( ('Personal Info'), {'fields':('name',)}),
         (
             ('Permissions'),
-            {'fields': ('ativo', 'inativo', 'supervisor') }
+            {'fields': ('is_active', 'is_staff', 'supervisor') }
         ),
         ( ('Important dates'), {'fields': ('last_login',)})
     )

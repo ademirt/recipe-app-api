@@ -17,7 +17,7 @@ class GestorUser(BaseUserManager):
     def criar_superuser(self, email, pwd):
         # Criar e salvar novo super usuário
         user = self.criar_user(email, pwd)
-        user.inativo = True
+        user.is_active = True
         user.supervisor = True
         user.save(using=self._db)
 
@@ -27,8 +27,8 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
     # Modelo de usuário personalizado utilizando email em vez de nome de usuário...
     email = models.EmailField(max_length=255, unique=True)
     name = models.CharField(max_length=255)
-    ativo = models.BooleanField(default=True)
-    inativo = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False)
 
     obj = GestorUser()
 
